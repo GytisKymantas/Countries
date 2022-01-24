@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { CountryContainer } from "./components/CountryContainer/CountryContainer";
+import { SortButton } from "./components/SortButton/SortButton";
+import "./App.css";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [fetchData, setFetchData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://restcountries.com/v2/all?fields=name,region,area")
+      .then((response) => response.json())
+      .then((data) => setFetchData(data));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {fetchData && <SortButton data={fetchData} />}
+      {fetchData && <CountryContainer data={fetchData} />}
     </div>
   );
 }
