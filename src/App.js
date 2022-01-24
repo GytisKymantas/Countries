@@ -1,6 +1,5 @@
 import React from "react";
-import { CountryContainer } from "./components/CountryContainer/CountryContainer";
-import { SortButton } from "./components/SortButton/SortButton";
+import { Header } from "./components/Header/Header";
 import "./App.css";
 import { useEffect, useState } from "react";
 
@@ -13,12 +12,7 @@ function App() {
       .then((data) => setFetchData(data));
   }, []);
 
-  return (
-    <div className="App">
-      {fetchData && <SortButton data={fetchData} />}
-      {fetchData && <CountryContainer data={fetchData} />}
-    </div>
-  );
+  return <div className="App">{fetchData && <Header data={fetchData} />}</div>;
 }
 
 export default App;
