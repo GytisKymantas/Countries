@@ -27,5 +27,13 @@
     color: white;
     cursor: pointer;
     box-shadow: 0px 3px 6px black;
+
+    &:hover {
+      filter: brightness(110%);
+    }
+
+    &:active {
+      filter: brightness(90%);
+    }
   }
 }

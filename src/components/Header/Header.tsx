@@ -2,7 +2,7 @@ import React from "react";
 import "./header.scss";
 import { CountryContainer } from "../CountryContainer/CountryContainer";
 import { Pagination } from "../Pagination/Pagination";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 interface Props {
   data: any, 
@@ -13,7 +13,7 @@ export const Header:React.FC<Props> = (data) => {
   const [value, setValue] = useState([] as any);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
-
+ 
   //buttons
   const filterOceania = countries.filter(
     (object:any) => object.region === "Oceania"
@@ -34,10 +34,22 @@ export const Header:React.FC<Props> = (data) => {
   const currentPosts = value?.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber:number) => setCurrentPage(pageNumber);
 
+ useEffect(() =>{
+   setValue(sortAscending)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[])
+
+ useEffect(() =>{
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  value.length < 120 ? setCurrentPage(1) : null;
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+},[value])
+
   return (
     <div className="menu">
       <div className="menu__wrapper">
         <h1 className="menu__name">Number of results: {value?.length}</h1>
+        <span>You are currently on #{currentPage} page</span>
       </div>
       <div className="Pagination">
         <Pagination
