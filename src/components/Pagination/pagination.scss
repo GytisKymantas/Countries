@@ -4,13 +4,14 @@
   list-style: none;
   justify-content: center;
   flex-wrap: wrap;
-}
-.pagination-items {
-  padding: 2px 4px;
-  background: white;
-  border: 2px solid gray;
 
-  a {
-    text-decoration: none;
+  .displayed__items {
+    padding: 2px 4px;
+    background: white;
+    border: 2px solid gray;
+
+    a {
+      text-decoration: none;
+    }
   }
 }

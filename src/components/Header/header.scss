@@ -1,28 +1,31 @@
 .menu {
   background: #cfed92;
   padding: 20px 20px 20px 20px;
+
+  .menu__name {
+    text-transform: uppercase;
+  }
 }
 
 .btns {
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
-}
-h1 {
-  text-transform: uppercase;
-}
-.ascending,
-.filtering {
-  display: flex;
-  gap: 10px;
-}
-button {
-  padding: 10px 15px;
-  border-radius: 55px;
-  border: none;
-  text-transform: uppercase;
-  background: green;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0px 3px 6px black;
+
+  &__alphabetical,
+  &__filtering {
+    display: flex;
+    gap: 10px;
+  }
+
+  button {
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    text-transform: uppercase;
+    background: green;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px black;
+  }
 }
